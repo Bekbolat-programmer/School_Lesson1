@@ -1,15 +1,13 @@
-fin = open('f1.txt', 'r')
-fout = open('f2.txt', 'w')
-fin_st = fin.read().split('\n')
-a, b = [], []
-for i in range(len(fin_st)):
-    if i % 2 == 0:
-        a.append(fin_st[i])
-    else:
-        b.append(fin_st[i])
-b.sort(reverse=True)
-a.sort()
-for i in a:
-    fout.write("{:s}\n".format(i))
-for i in b:
-    fout.write("{:s}\n".format(i))
+import random
+
+
+fout = open('f1.txt', 'w')
+a = []
+for i in range(9):
+    a.append(random.randint(-10, 10))
+a.sort(reverse=True)
+print(a)
+for i in range(1, len(a) + 1):
+    for j in range(1, i + 1):
+        print(a[j - 1], end=' ', file=fout)
+    print('', file=fout)
